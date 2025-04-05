@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#info {
+    margin: auto;
+    width: 90%;
+    height: 100px;
+    border: 3px solid black;
+    display: flex;
+    padding-left: 40px;
+}
+
+#logo {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#MainBody {
+    width: 90%;
+    margin: auto;
+    border: 3px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#part1 {
+    width: 500px;
+    border: 3px solid gray;
+    height: 80vh;
+    text-align: center;
+}
+
+#part2 {
+    width: 500px;
+    border: 3px solid gray;
+    height: 80vh;
+   
+}
+
+#todoItem {
+    line-height: 40px;
+    width: 90%;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+#addTodo {
+width: 200px;
+height: 40px;
+margin-top: 10px;
+}
+
+#lists {
+    list-style-type: none;
+
+}

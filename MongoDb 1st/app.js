@@ -1,7 +1,9 @@
 import express, { urlencoded } from 'express'
 import mongoose from 'mongoose'
 import UserData from './schema/schema.js'
+import cors from "cors"
 const app = express()
+app.use(cors())
 const PORT= 5050
 
 app.use(express.json())
@@ -32,9 +34,10 @@ app.get("/getDatas", async(request, response)=>{
     const allData =await UserData.find()
 
     response.json({
-        data :  allData,
+        data : allData ,
         message : "got All Data"
     })
+
 })
 
 app.put("/update/:id", async(req , res )=>{

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserDashboard</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <!-- <h1 style="text-align: center;">WelCome On Board</h1> -->
+    <div id="info">
+        <div style="display: flex; gap: 10px;">
+            <div id="logo"></div>
+            <div id="CurrUser"></div>
+        </div>
+    </div>
+    <div id="MainBody">
+        <div id="part1">
+            <input type="text" id="todoItem">
+            <div><button id="addTodo" onclick="addto()">Add ToDo</button></div>
+            <div >
+                <ul id="todos"></ul>
+            </div>
+
+        </div>
+        <div id="part2"></div>
+    </div>
+
+
+    <script src="todo.js"></script>
+</body>
+</html>

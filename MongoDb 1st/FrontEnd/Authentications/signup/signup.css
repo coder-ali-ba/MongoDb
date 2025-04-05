@@ -5,16 +5,39 @@
 }
 
 #MainContainer {
-    color: white;
    width: 100vw;
    height: 100vh;
-   border: 10px solid black;
    background-image: url("https://img.freepik.com/premium-vector/padlock-with-keyhole-icon-personal-data-security-illustrates-cyber-data-information-privacy-idea-blue-color-abstract-hi-speed-internet-technology_542466-600.jpg");
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
+   padding-top: 5%;
 }
 
 #signDiv {
-    
+    width: 350px;
+    height: 85%;
+    background-color: rgb(240, 197, 141);
+    margin: auto;
+    /* margin-top: 5%; */
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#signDiv input {
+    display: block;
+    width: 90%;
+    line-height: 50px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: x-large;
+    padding-left: 10px;
+    /* background-color: gray;
+    color: white; */
+}
+#signDiv input :hover{
+    border: 2px solid black;
 }
