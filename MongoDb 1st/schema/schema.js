@@ -6,5 +6,13 @@ const mySchema = new mongoose.Schema({
     password : String
 })
 
-const UserData = mongoose.model('UserData', mySchema);
-export default UserData
+
+const todoSchema = new mongoose.Schema({
+    dolist : String,
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'UserData' },
+})
+
+export const UserData = mongoose.model('UserData', mySchema);
+export const todoData = mongoose.model("todoData", todoSchema)
+
+

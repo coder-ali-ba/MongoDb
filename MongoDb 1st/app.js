@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express'
 import mongoose from 'mongoose'
-import UserData from './schema/schema.js'
+import {UserData, todoData } from './schema/schema.js'
+
 import cors from "cors"
 const app = express()
 app.use(cors())
@@ -61,10 +62,45 @@ app.delete("/deleteId/:id", async (request , response)=>{
 
 
 
+app.post("/addToDO", async(req, res)=>{
+    // console.log(req.body);
+    const users =await todoData.create(req.body)
+    res.json({
+        data : req.body,
+        message : "Created"
+    })
+})
+
+
+// app.delete("/deleteTodo/:id", async (request , response)=>{
+//     const toDel =request.params.id
+//     await todoData.findByIdAndDelete(toDel);
+//     response.json({
+//         message : "deleted"
+//     })
+// })
+
+
+app.get("/getTodoList", async(request, response)=>{
+    const allTodos =await todoData.find()
+
+    response.json({
+        data : allTodos ,
+        message : "got All Data"
+    })
+
+})
+
+
 app.listen(PORT, ()=>{
     console.log(`running on http://localhost:${PORT}`);
     
 })
+
+
+
+
+
 
 
 

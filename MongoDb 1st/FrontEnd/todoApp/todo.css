@@ -12,11 +12,16 @@
     padding-left: 40px;
 }
 
+
 #logo {
     width: 95px;
     height: 95px;
     border-radius: 50%;
     background-color: black;
+}
+
+#CurrUser {
+    margin-top: 30px;
 }
 
 #MainBody {
@@ -27,20 +32,23 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    background: linear-gradient(to right, rgb(132, 132, 235), rgb(209, 209, 94));
 }
 
 #part1 {
     width: 500px;
-    border: 3px solid gray;
+    /* border: 3px solid gray; */
     height: 80vh;
     text-align: center;
 }
-
+/* https://cdn4.vectorstock.com/i/1000x1000/98/18/color-scene-background-front-view-web-developer-vector-15519818.jpg */
 #part2 {
     width: 500px;
-    border: 3px solid gray;
+    /* border: 3px solid gray; */
     height: 80vh;
-   
+   background-image: url(../todoApp/color-scene-background-front-view-web-developer-vector-15519818-removebg-preview.png);
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 #todoItem {
@@ -59,5 +67,64 @@ margin-top: 10px;
 
 #lists {
     list-style-type: none;
+     
+}
+#spn {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    gap: 100px;
+    background-color: blueviolet;
+    color: white;
+    margin-top: 20px;
+    font-size: larger;
+    /* text-align: justify; */
 
+}
+#spn i {
+    cursor: pointer;
+}
+
+@media(max-width : 1140px){
+    #MainBody{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    #part2 {
+        background-size: contain;  
+    }
+    /* #info {
+        width: 100%; 
+         padding-left: 0px;
+    } */
+}
+
+@media(max-width : 500px) {
+    #part2 {
+        width: 100%;
+    }
+    #part1 {
+        width: 100%;
+        margin-top: -80px;
+    }
+    #info {
+        width: 100%;
+        padding-left: 0;
+    }
+   
+}
+@media(max-width : 450px) {
+    #part1 {
+        width: 100%;
+        margin-top: -110px;
+    }
+}
+@media(max-width : 400px) {
+    #part1 {
+        width: 100%;
+        margin-top: -180px;
+    }
 }
