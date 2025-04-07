@@ -52,13 +52,13 @@ app.put("/update/:id", async(req , res )=>{
     })
 })
 
-app.delete("/deleteId/:id", async (request , response)=>{
-    const toDel =request.params.id
-    await UserData.findByIdAndDelete(toDel);
-    response.json({
-        message : "deleted"
-    })
-})
+// app.delete("/deleteId/:id", async (request , response)=>{
+//     const toDel =request.params.id
+//     await UserData.findByIdAndDelete(toDel);
+//     response.json({
+//         message : "deleted"
+//     })
+// })
 
 
 
@@ -71,14 +71,18 @@ app.post("/addToDO", async(req, res)=>{
     })
 })
 
+app.delete("/deleteTodo/:id", async (request , response)=>{
+    const toDel =request.params.id
+    console.log(toDel);
+    
+    await todoData.findByIdAndDelete(toDel);
+    response.json({
+        message : "deleted",
+        data : toDel
+    })
+})
 
-// app.delete("/deleteTodo/:id", async (request , response)=>{
-//     const toDel =request.params.id
-//     await todoData.findByIdAndDelete(toDel);
-//     response.json({
-//         message : "deleted"
-//     })
-// })
+
 
 
 app.get("/getTodoList", async(request, response)=>{
