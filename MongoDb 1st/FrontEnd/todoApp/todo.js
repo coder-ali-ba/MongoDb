@@ -24,16 +24,12 @@ const getTodos = (async() => {
     const listId=item._id
       
       todos.innerHTML +=`
-      <span id="spn">
+      <span id="spn" >
          <div>
-             <li id="lists"  class="${listId}">${item.dolist} </li>
-         </div>
-
-         <div id="delEle"  class="dis">
-             <input   placeholder="enterId To delete">
+             <li id="${listId}" class="allLists">${item.dolist} </li>
          </div>
          <div>
-             <i class="bi bi-x-lg"  onclick="delFun()"></i> 
+             <i class="bi bi-x-lg" id="CrossBTN"  onclick="delFun()"></i> 
          </div>
         
       
@@ -66,10 +62,10 @@ async function addto(){
      todos.innerHTML +=`
      <span id="spn">
         <div>
-            <li id="lists">${todoItem.value} </li>
+            <li>${todoItem.value} </li>
         </div>
         <div>
-            <i class="bi bi-x-lg" id="Cut" onclick="delFun()"></i> 
+            <i class="bi bi-x-lg" id="Cut" ></i> 
         </div>
      
      </span>
@@ -85,53 +81,39 @@ async function addto(){
 }
 
 
-// const editList = () =>{
-//   const li = document.getElementById("lists")
-//   const input = document.createElement("input");
-//   input.type="text"
 
-//   li.innerHTML = ""
-//  li.appendChild(input);
- 
+
+async function delFun() {
+  const lists = document.getElementsByClassName("allLists");
+
+  let listIndex = 0
+  const response =  await fetch("http://localhost:5050/getTodoList")
+  let data = await response.json()
+  console.log(data.data);
+  const todoList = data.data
+  const h = lists[listIndex++].id
+  const matId=todoList.map((todoList)=>{
+
+       return todoList._id == h
+        
+  })
+
+  // const u = lists.map((li)=>{
+  //   return li.id == todoList.id
+  // })
+  console.log( matId);
   
-// }
-// const textEd=document.getElementsByClassName("editText")
-// textEd.addEventListener("click", editList())
+  if(matId){
+    try {
+      await fetch(`http://localhost:5050/deleteTodo/${h}`,{
+        method : "DELETE"
+      })
 
-
-
-
-// const delEle=document.getElementById("delEle")
-// const show = ()=>{
-//   delEle.classList.remove("dis")
-//  }
-
-async function delFun(){
-  try {
-    document.getElementById("spn").style.display="none";
-
-// console.log(li.classList);
-
-    await fetch(`http://localhost:5050/deleteTodo/${delEle.value}`, {
-      method: "DELETE", // Specify DELETE method
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-     .then(()=>{
-      console.log("hogaya");
+    } catch (error) {
+      console.log("nhi Bhai");
       
-     })
-li.addEventListener("click", ()=>{
- delEle.classList.remove("dis")
-})
-  } catch (error) {
-    console.log("delERR");
+    }
     
+  }  
   }
-
-
- }
-
-
 

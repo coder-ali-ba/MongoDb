@@ -5,19 +5,36 @@
 }
 #info {
     margin: auto;
-    width: 90%;
+    width: 100%;
     height: 100px;
-    border: 3px solid black;
+    /* border: 3px solid black; */
     display: flex;
     padding-left: 40px;
+    padding-right: 40px;
+    background-color: gray;
+    color: white;
+    justify-content: space-between;
+}
+#logOutBtn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    background-color: rgb(39, 39, 38);
+    border-radius: 10px;
 }
 
 
+#logOutBtn:hover {
+    background-color: rgb(72, 77, 77);
+}
 #logo {
     width: 95px;
     height: 95px;
     border-radius: 50%;
-    background-color: black;
+    background-color: white;
 }
 
 #CurrUser {
@@ -25,9 +42,9 @@
 }
 
 #MainBody {
-    width: 90%;
+    width: 100%;
     margin: auto;
-    border: 3px solid black;
+    /* border: 3px solid black; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -57,12 +74,25 @@
     margin-top: 50px;
     border-radius: 10px;
     border: 2px solid black;
+    font-size: large;
+    color: aliceblue;
+    background-color: grey;
+    cursor: cell;
 }
 
 #addTodo {
 width: 200px;
 height: 40px;
 margin-top: 10px;
+background-color: green;
+border: none;
+border-radius: 10px;
+color: white;
+font-size: large;
+}
+
+#addTodo:hover {
+    background-color: rgb(94, 233, 94);
 }
 
 #lists {
@@ -75,12 +105,16 @@ margin-top: 10px;
     padding-right: 20px;
     justify-content: space-between;
     gap: 100px;
-    background-color: blueviolet;
+    background-color: gray;
+    line-height: 30px;
     color: white;
     margin-top: 20px;
     font-size: larger;
     /* text-align: justify; */
 
+}
+#todos {
+    list-style-type: none;
 }
 #spn i {
     cursor: pointer;
@@ -132,3 +166,35 @@ margin-top: 10px;
 /* .dis {
     display: none;
 } */
+
+
+#delAcc {
+    width: 100%;
+    height: 100px;
+    /* background-color: pink; */
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#delBtn{
+width: 50%;
+height: 50%;
+background-color:  rgb(252, 91, 91);
+color: white;
+border: none;
+border-radius: 15px;
+font-size: larger;
+font-weight: bold;
+transition: 0.5s;
+}
+/* body {
+    background: linear-gradient((to right, rgb(132, 132, 235), rgb(209, 209, 94)));
+} */
+#delBtn:hover {
+/* border: 2px solid yellow; */
+background-color:red ;
+}
+
+#CrossBTN:hover {
+color: red;
+}
