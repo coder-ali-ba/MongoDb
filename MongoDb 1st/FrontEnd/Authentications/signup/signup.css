@@ -15,8 +15,8 @@
 }
 
 #signDiv {
-    width: 350px;
-    height: 85%;
+    width: 340px;
+    height: 70%;
     background-color: rgb(240, 197, 141);
     margin: auto;
     /* margin-top: 5%; */
@@ -40,4 +40,15 @@
 }
 #signDiv input :hover{
     border: 2px solid black;
+}
+
+#signBtn {
+    margin-top: 20px;
+    height: 50px;
+    width: 70%;
+    margin-bottom: 30px;
+    background-color: green;
+    font-size: larger;
+    border: none;
+    border-radius: 5px;
 }

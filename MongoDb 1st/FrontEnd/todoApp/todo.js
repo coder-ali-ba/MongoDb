@@ -7,49 +7,39 @@ CurrUser.innerHTML = `<h1>${CurrentUser[0].email}</h1>`;
 
 
 
-
-
 const todoItem=document.getElementById("todoItem")
 const todos =document.getElementById("todos")
 
-// let listNo =0;
-const getTodos = (async() => {
+const getTodos = async() => {
   try {
     const response =  await fetch("http://localhost:5050/getTodoList")
     let data = await response.json()
-    console.log(data.data);
     const todoList = data.data
     todoList.map((item)=>{
-    // console.log(item._id);
     const listId=item._id
-      
       todos.innerHTML +=`
       <span id="spn" >
          <div>
              <li id="${listId}" class="allLists">${item.dolist} </li>
          </div>
          <div>
-             <i class="bi bi-x-lg" id="CrossBTN"  onclick="delFun()"></i> 
+             <i class="bi bi-exposure edi" id="${listId}" onclick="editFun(this)"></i>
+             <i class="bi bi-x-lg  del" id="${listId}"   onclick="delFun(this)"></i> 
          </div>
-        
-      
       </span>
        `;
     })  
   } catch (error) {
-    console.log("fetching error");
-    
+    console.log("fetching error", error.message);
   }
-  
-})()
-// getTodos()
+}
+
 
 async function addto(){
   try {
-    const todoData ={
+     const todoData ={
       dolist : todoItem.value
      }
-  
      const response = await fetch("http://localhost:5050/addToDO", {
       method :"POST",
       headers : {
@@ -57,63 +47,76 @@ async function addto(){
       },
       body : JSON.stringify(todoData)
      });
-  
-  
-     todos.innerHTML +=`
-     <span id="spn">
-        <div>
-            <li>${todoItem.value} </li>
-        </div>
-        <div>
-            <i class="bi bi-x-lg" id="Cut" ></i> 
-        </div>
      
-     </span>
-      `;
-  
-      todoItem.innerHTML == ""
+     todos.innerHTML= ""
+     getTodos()
   } catch (error) {
-    console.log("addTodo Err");
-    
+    console.log("addTodo Err");   
   }
-   
 
+  todoItem.innerHTML ==""
 }
 
 
 
 
-async function delFun() {
-  const lists = document.getElementsByClassName("allLists");
-
-  let listIndex = 0
-  const response =  await fetch("http://localhost:5050/getTodoList")
-  let data = await response.json()
-  console.log(data.data);
-  const todoList = data.data
-  const h = lists[listIndex++].id
-  const matId=todoList.map((todoList)=>{
-
-       return todoList._id == h
-        
-  })
-
-  // const u = lists.map((li)=>{
-  //   return li.id == todoList.id
-  // })
-  console.log( matId);
-  
-  if(matId){
-    try {
-      await fetch(`http://localhost:5050/deleteTodo/${h}`,{
-        method : "DELETE"
-      })
-
-    } catch (error) {
-      console.log("nhi Bhai");
+async function delFun(ele) {
+      try {
+         await fetch(`http://localhost:5050/deleteTodo/${ele.id}`,{
+            method : "DELETE"
+          })
+          todos.innerHTML=""
+           getTodos()
+      } catch (error) {
+       console.log("nhi Bhai");
       
-    }
-    
-  }  
+      } 
+}  
+  
+
+
+ async function editFun(ele){
+     
+      const appendItem = prompt("edit your todo")
+
+      let obj ={
+        dolist : appendItem
+      }
+     
+      try {
+       await fetch(`http://localhost:5050/update/${ele.id}`, {
+        method :"PUT",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(obj)
+      })
+      todos.innerHTML =""
+      getTodos()
+        
+      } catch (error) {
+        console.log(error.message);
+      }  
   }
 
+
+
+
+async function deleteAllFun(){
+  await  fetch("http://localhost:5050/deleteAll", {
+    method : "DELETE",
+    headers :{
+      "COntent-Type" :"application/json"
+    }
+  })
+  .then(()=>{
+    todos.innerHTML=""
+  })
+}
+
+
+const logOutBtn =() => {
+  window.location = "../Authentications/login/login.html"
+}
+  window.addEventListener('load', getTodos)
+  // window.delFun=delFun()

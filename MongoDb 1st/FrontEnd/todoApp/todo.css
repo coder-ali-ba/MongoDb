@@ -49,7 +49,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    background: linear-gradient(to right, rgb(132, 132, 235), rgb(209, 209, 94));
+    background: linear-gradient(to right, rgb(122, 122, 241), rgb(218, 218, 62), tomato);
 }
 
 #part1 {
@@ -147,8 +147,26 @@ font-size: large;
     #info {
         width: 100%;
         padding-left: 0;
+        flex-wrap: wrap;
+      justify-content: center;
+        height: 150px;
+        gap: 0px;
     }
-   
+    #logo {
+        width: 75px;
+        height: 75px;
+    }
+    #logOutBtn {
+        padding-top: 10px;
+        margin-top: 0px;
+        margin-left: 70px;
+        height: 50px;
+        margin-bottom: 100px;
+    }
+    #CurrUser {
+        margin-top: 15px;
+        font-size: small;
+    }
 }
 @media(max-width : 450px) {
     #part1 {
@@ -195,6 +213,9 @@ transition: 0.5s;
 background-color:red ;
 }
 
-#CrossBTN:hover {
+.del:hover {
 color: red;
+}
+.edi:hover {
+    color: green;
 }

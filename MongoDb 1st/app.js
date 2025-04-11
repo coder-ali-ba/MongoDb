@@ -41,24 +41,10 @@ app.get("/getDatas", async(request, response)=>{
 
 })
 
-app.put("/update/:id", async(req , res )=>{
-    // console.log(req.params.id);
-    const updatedData = req.body
-    const idUpdate = req.params.id
-    const updated =  await UserData.findByIdAndUpdate(idUpdate, updatedData)
-    res.json({
-        data :  updated,
-        message : "got All Data"
-    })
-})
 
-// app.delete("/deleteId/:id", async (request , response)=>{
-//     const toDel =request.params.id
-//     await UserData.findByIdAndDelete(toDel);
-//     response.json({
-//         message : "deleted"
-//     })
-// })
+
+
+
 
 
 
@@ -95,6 +81,28 @@ app.get("/getTodoList", async(request, response)=>{
 
 })
 
+app.put("/update/:id", async(req , res )=>{
+    // console.log(req.params.id);
+    const updatedData = req.body
+    const idUpdate = req.params.id
+    const updated =  await todoData.findByIdAndUpdate(idUpdate, updatedData)
+    res.json({
+        data :  updated,
+        message : "got All Data"
+    })
+})
+
+
+
+app.delete("/deleteAll", async(req, res)=>{
+    const delAll =await todoData.deleteMany({})
+    res.json({
+        data : delAll,
+        message: "deleted All"
+    })
+
+
+})
 
 app.listen(PORT, ()=>{
     console.log(`running on http://localhost:${PORT}`);

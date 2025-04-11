@@ -4,12 +4,12 @@ async function logIn() {
 
     const response = await fetch("http://localhost:5050/getDatas")
     const data = await response.json()
-    // console.log(data.data);
+ 
     const users =data.data
     const z = users.filter((user)=>{
            return user.password == idPassword.value
     })
-    // console.log(z);
+
     if(!z || z =="" || idName.value == ""){
         alert("User not Found")
     }else {
